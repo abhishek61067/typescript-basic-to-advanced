@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 const PostPage = () => {
   const [postList, setPostList] = useState([]);
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
+    fetch("https://jsonplaceholder.typicode.com/post")
       .then((res) => res.json())
       .then((data) => {
         setPostList(data);
@@ -16,11 +16,15 @@ const PostPage = () => {
   return (
     <div>
       <h1>List of posts:</h1>
-      {postList?.map((el: PostProps) => {
-        return (
-          <PostCard key={el.id} id={el.id} title={el.title} body={el.body} />
-        );
-      })}
+      {(postList.length > 0 ? (
+        postList?.map((el: PostProps) => {
+          return (
+            <PostCard key={el.id} id={el.id} title={el.title} body={el.body} />
+          );
+        })
+      ) : (
+        <p>Data empty</p>
+      )) ?? <p>Data is null</p>}
     </div>
   );
 };
