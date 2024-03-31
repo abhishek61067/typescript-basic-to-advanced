@@ -17,13 +17,31 @@ const postList = [
   },
 ];
 const EventTypePage = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {};
+  // handle form submit
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("form submit");
+  };
+  // handle input change
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.currentTarget.value);
+  };
+  // handle delete
+  const handleDelete = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
+    console.log("deleted post with id: ", id);
+  };
+
   return (
     <div>
       <h1 className="font-bold text-3xl mb-5">Event Type example</h1>
       {/* for filter */}
       <form onSubmit={handleSubmit}>
-        <input className="border rounded-md p-2" type="text" name="search" />
+        <input
+          className="border rounded-md p-2"
+          type="text"
+          name="search"
+          onChange={handleInputChange}
+        />
         <Button
           type="submit"
           className="m-1 bg-neutral-500 text-white"
@@ -38,7 +56,13 @@ const EventTypePage = () => {
           <li key={item.id}>
             <h2 className="mb-2 text-2xl font-bold">{item.title}</h2>
             <p className="text-gray-500">{item.body}</p>
-            <Button variant="outline" className="bg-red-500 text-white">
+            <Button
+              onClick={(e) => {
+                handleDelete(e, item.id);
+              }}
+              variant="outline"
+              className="bg-red-500 text-white"
+            >
               Delete
             </Button>
           </li>
