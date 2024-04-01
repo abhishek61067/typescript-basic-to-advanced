@@ -1,3 +1,4 @@
+"use client";
 import React, { createContext, useReducer } from "react";
 import { CHANGE_THEME } from "./../constant/constant";
 import { CHANGE_FONTSIZE } from "./../constant/constant";
@@ -13,10 +14,16 @@ type stateType = {
   fontSize: number;
 };
 
-type actionType = {
-  type: typeof CHANGE_THEME | typeof CHANGE_FONTSIZE;
+type ThemeActionType = {
+  type: typeof CHANGE_THEME;
+};
+type FontsizeActionType = {
+  type: typeof CHANGE_FONTSIZE;
   payload: number;
 };
+
+// discriminated union type
+type actionType = ThemeActionType | FontsizeActionType;
 
 type ContextType = {
   state: stateType;
