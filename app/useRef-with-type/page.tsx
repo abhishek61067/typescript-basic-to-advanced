@@ -12,6 +12,13 @@ const UseRefWithType = () => {
     //focusing the input
     inputRef.current?.focus();
   }, []);
+
+  //   handle send
+  const handleSend = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const username = usernameInputRef.current?.value;
+    console.log("username: ", username);
+  };
   return (
     <div>
       <h1 className="text-center text-2xl font-bold">Use Ref with Type</h1>
@@ -32,7 +39,7 @@ const UseRefWithType = () => {
             className="p-2"
             ref={usernameInputRef}
           />
-          <Button>Send</Button>
+          <Button onClick={handleSend}>Send</Button>
         </form>
       </div>
     </div>
