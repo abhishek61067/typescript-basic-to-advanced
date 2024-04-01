@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Kanit } from "next/font/google";
 import "./globals.css";
+import ThemeAndFontSizeContextComponent from "@/context/ThemeAndFontSizeContext";
 
 const customFont = Kanit({
   weight: "400",
@@ -19,7 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={customFont.className}>
-      <body className="p-2 md:p-5">{children}</body>
+      <body className="p-2 md:p-5">
+        <ThemeAndFontSizeContextComponent>
+          {children}
+        </ThemeAndFontSizeContextComponent>
+      </body>
     </html>
   );
 }
