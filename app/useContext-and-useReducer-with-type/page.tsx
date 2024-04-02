@@ -16,7 +16,7 @@ const UseContextAndUseReducerWithType = () => {
 
   // handle change theme
   const handleChangeTheme = () => {
-    dispatch({ type: "CHANGE_THEME", payload: 15 });
+    dispatch({ type: "CHANGE_THEME" });
   };
 
   return (

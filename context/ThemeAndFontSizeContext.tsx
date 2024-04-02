@@ -17,10 +17,12 @@ type stateType = {
 type ThemeActionType = {
   type: typeof CHANGE_THEME;
 };
+console.log("type of change_theme: ", typeof CHANGE_THEME);
 type FontsizeActionType = {
   type: typeof CHANGE_FONTSIZE;
   payload: number;
 };
+console.log("type of change_theme: ", typeof CHANGE_FONTSIZE);
 
 // discriminated union type
 type actionType = ThemeActionType | FontsizeActionType;
