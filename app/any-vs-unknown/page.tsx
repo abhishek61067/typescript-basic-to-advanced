@@ -7,8 +7,8 @@ if (typeof value === "string") {
 }
 
 value = 10;
-if (typeof value === "string") {
-  console.log(value.toUpperCase()); // This block will not run, so no error
+if (typeof value === "number") {
+  console.log(value.toUpperCase());
 }
 
 console.log(value.toUpperCase()); // No type check here, runtime error: value.toUpperCase is not a function
