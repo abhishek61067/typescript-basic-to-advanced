@@ -2,6 +2,12 @@ import React from "react";
 import Section from "@/components/Section";
 import ItemCard from "../../components/ItemCard";
 
+// generic in function
+function createPair<s, t>(v1: s, v2: t): [s, t] {
+  return [v1, v2];
+}
+console.log(createPair<string, number>("hello", 42)); // ['hello', 42]
+
 const ItemList = [
   {
     userId: 1,
