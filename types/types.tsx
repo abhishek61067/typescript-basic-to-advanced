@@ -3,3 +3,9 @@ export type PostProps = {
   title: string;
   body: string;
 };
+
+export type ObjType2 = {
+  name: string;
+  age: number;
+  maritalStatus: boolean;
+};
