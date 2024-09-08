@@ -18,3 +18,7 @@ export type funcType1 = () => { x: number };
 export type funcType2 = (p1: { x: number }, p2: { y: number }) => void;
 
 export type ObjType3 = { name: string };
+
+export type ObjTypeWithIndexSignature = { [index: string]: number };
+
+export type ObjType4 = { name: keyof ObjTypeWithIndexSignature };
